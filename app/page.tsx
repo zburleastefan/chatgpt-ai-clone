@@ -10,7 +10,7 @@ export default function Home() {
     <div className="flex flex-col flex-1 items-center bg-[#11A37F] bg-no-repeat bg-center bg-cover place-items-center bg-[url('/chatgptLogo.svg')] justify-center h-screen sm:pt-[10%] overflow-y-hidden overflow-x-clip p-3 text-white">
       <h3 className="text-white justify-between items-center text-center p-3 opacity-80">Hello <span className="font-semibold hover:underline hover:text-[#11A37F] hover:opacity-100">{auth?.currentUser?.displayName || auth?.currentUser?.email}</span></h3>
       <h2 className="text-base opacity-80 md:text-xl font-semibold">Welcome to</h2>
-      <h1 className="text-3xl md:text-5xl font-bold my-3">ChatGPT Clone</h1>
+      <h1 className="text-3xl md:text-5xl font-bold my-3">GPT <span className="font-serif font-bold ">3.5</span> Clone</h1>
       <h6 className="text-sm mx-10 mb-3 text-gray-400/70 font-semibold">Answers from ChatGPT OpenAI:</h6>
       <div className='flex-1 md:flex text-gray-300 text-center h-screen overflow-y-auto overflow-x-clip'>
           <div className='md:space-x-2'>
