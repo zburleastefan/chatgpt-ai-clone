@@ -2,6 +2,11 @@
 
 ![Screenshot_287](https://user-images.githubusercontent.com/104846691/235878149-ba164e03-4553-4101-bc45-33090197ab5e.png)
 
+## Project description
+
+```bash
+ChatGPT AI clone project is built with Next.js, Firebase, Typescript and Tailwind and uses OpenAI GPT-3.5. It is a powerful and efficient tool for creating conversational AI applications. It utilizes natural language processing (NLP) and machine learning (ML) to create a conversational AI clone that can understand and respond to user input. You can ask the AI anything in any language and the AI will answer your questions in real time. The project is designed to be highly customizable and extensible, allowing developers to create custom AI applications with ease. It is also built with scalability in mind, allowing users to easily scale their applications as their user base grows. With ChatGPT, developers can quickly and easily create AI applications that are both powerful and user friendly.
+```
 
 ## How to use
 
