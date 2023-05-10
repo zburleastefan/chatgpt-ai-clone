@@ -19,9 +19,13 @@ function ChatRow({id}: Props) {
         collection(db,'users', auth?.currentUser!.uid, 'chats', id, 'messages'),
     );
 
-    useEffect(() => {
+    const pathFunction = () => {
         if (!pathName) return;
         setActive(pathName?.includes(id));
+    }
+
+    useEffect(() => {
+        pathFunction();
     }, [pathName]);
 
     const removeChat = async () => {

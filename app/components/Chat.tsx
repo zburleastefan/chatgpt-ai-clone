@@ -29,17 +29,14 @@ function Chat({chatId}: Props) {
   };
 
   const [height, setHeight] = useState(0);
-  const heightRef = useRef<HTMLDivElement>(null);
-  const screenHeight= () => {
-    if (heightRef?.current?.clientHeight) {
-     setHeight(heightRef.current.clientHeight);
-    }
-  };
-
+  const heightRef = useRef<HTMLDivElement | null>(null);
+  
   useEffect(() => {
-    screenHeight(); 
-    scrollToBottom(); 
-  }, [[], heightRef]);
+    if (heightRef?.current?.clientHeight! > 750) {
+     setHeight(heightRef?.current?.clientHeight!);
+     scrollToBottom(); 
+    }
+  }, [[], [heightRef]]);
 
   if (loading) return (
     <div className="flex-1 overflow-y-auto overflow-x-hidden">

@@ -39,15 +39,7 @@ function ChatInput({chatId}: Props) {
             return;
         }
 
-        // await fetch(`/google.com/${input}`, {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify({
-        //         prompt: input, 
-        //     }),     
-        // })
+        // To Do : google search samples
 
         const message: Message = {
             text: input,
