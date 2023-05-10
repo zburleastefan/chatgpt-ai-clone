@@ -1,4 +1,4 @@
-# ChatGPT Clone
+# ChatGPT AI Clone
 
 ![Screenshot_287](https://user-images.githubusercontent.com/104846691/235878149-ba164e03-4553-4101-bc45-33090197ab5e.png)
 
