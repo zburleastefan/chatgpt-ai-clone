@@ -1,4 +1,4 @@
-import { auth, db } from '@/src/firebase/firebaseConfig';
+import { auth, db } from '@/firebase/firebaseConfig';
 import { ChatBubbleLeftIcon, TrashIcon } from '@heroicons/react/24/solid';
 import { collection, deleteDoc, doc } from 'firebase/firestore';
 import Link from 'next/link';

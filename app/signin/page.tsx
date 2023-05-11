@@ -2,10 +2,10 @@
 import React from 'react';
 import { Tooltip } from 'react-tooltip';
 import { FcGoogle } from 'react-icons/fc';
-import resetPassword from '@/src/firebase/auth/resetpassword';
-import signIn from '@/src/firebase/auth/signin';
-import singInWithGoogle from '@/src/firebase/auth/singinwithgoogle';
-import signUp from '@/src/firebase/auth/signup';
+import resetPassword from '@/context/auth/resetpassword';
+import signIn from '@/context/auth/signin';
+import singInWithGoogle from '@/context/auth/singinwithgoogle';
+import signUp from '@/context/auth/signup';
 
 function SignIn() {
     const [email, setEmail] = React.useState('');

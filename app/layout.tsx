@@ -1,8 +1,8 @@
 'use client'
 import './globals.css';
-import { AuthContextProvider } from '../src/context/AuthContext';
-import Notification from './components/Notification';
-import Sidebar from './components/Sidebar';
+import { AuthContextProvider } from '../context/AuthContext';
+import Notification from '../components/Notification';
+import Sidebar from '../components/Sidebar';
 import Head from './head';
 import React from 'react';
 

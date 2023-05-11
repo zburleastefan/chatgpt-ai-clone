@@ -1,5 +1,5 @@
 'use client'
-import { AuthContextProvider } from "@/src/context/AuthContext"
+import { AuthContextProvider } from "@/context/AuthContext"
 
 export default function ChatLayout({
   children,

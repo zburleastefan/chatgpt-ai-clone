@@ -1,4 +1,4 @@
-import firebaseApp from '@/src/firebase/firebaseConfig';
+import firebaseApp from '@/firebase/firebaseConfig';
 import { GoogleAuthProvider, getAuth, sendEmailVerification, signInWithRedirect } from 'firebase/auth';
 
 const auth = getAuth(firebaseApp);

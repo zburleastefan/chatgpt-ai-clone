@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../loading-dots.module.css";
+import styles from "../app/loading-dots.module.css";
 
 const LoadingDots = ({
 }) => {

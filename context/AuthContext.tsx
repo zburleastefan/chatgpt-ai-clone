@@ -2,7 +2,7 @@ import { User, getAuth, onAuthStateChanged } from 'firebase/auth';
 import React from 'react';
 import firebaseApp from '../firebase/firebaseConfig';
 import SignIn from '@/app/signin/page';
-import LoadingDots from '@/app/components/LoadingDots';
+import LoadingDots from '@/components/LoadingDots';
 
 const auth = getAuth(firebaseApp);
 

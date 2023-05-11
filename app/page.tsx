@@ -1,5 +1,5 @@
 'use client'
-import firebaseApp from "@/src/firebase/firebaseConfig";
+import firebaseApp from "@/firebase/firebaseConfig";
 import { BoltIcon, CodeBracketSquareIcon, PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import { getAuth } from "firebase/auth";
 

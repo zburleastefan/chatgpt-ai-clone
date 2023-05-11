@@ -7,7 +7,7 @@ import { ErrorIcon } from "react-hot-toast";
 import { useEffect, useRef, useState } from "react";
 import { ArrowUpCircleIcon, Cog6ToothIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
-import { auth, db } from "@/src/firebase/firebaseConfig";
+import { auth, db } from "@/firebase/firebaseConfig";
 
 type Props = {
     chatId: string;

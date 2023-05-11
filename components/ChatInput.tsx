@@ -1,10 +1,10 @@
 'use client'
-import { auth, db } from "@/src/firebase/firebaseConfig";
+import { auth, db } from "@/firebase/firebaseConfig";
 import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { FormEvent, useRef, useState } from "react";
 import toast from "react-hot-toast";
-import userImage from '../../public/defaultUser.svg';
+import userImage from '../public/defaultUser.svg';
 
 type Props = {
     chatId: string;

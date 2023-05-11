@@ -8,10 +8,10 @@ import { ArrowLeftOnRectangleIcon, ArrowsPointingInIcon, ArrowsPointingOutIcon, 
 import Image from 'next/image';
 import { usePathname, useRouter } from 'next/navigation';
 import { Tooltip } from 'react-tooltip';
-import { auth, db } from '@/src/firebase/firebaseConfig';
-import signOutFirebase from '@/src/firebase/auth/signout';
-import userImage from '../../public/defaultUser.svg';
-import { enterfullscreen, exitFullscreen } from '../layout';
+import { auth, db } from '@/firebase/firebaseConfig';
+import signOutFirebase from '@/context/auth/signout';
+import userImage from '../public/defaultUser.svg';
+import { enterfullscreen, exitFullscreen } from '../app/layout';
 
 function Sidebar() {
   const pathName = usePathname();
