@@ -52,7 +52,7 @@ export default async function handler(
 
     let resMessage = '';
     if (res.statusCode != 200) {
-        resMessage = "Error: " + res.statusCode.toString() + " " + res?.statusMessage;
+        resMessage = "Slow internet connection. Status code: " + res.statusCode.toString() + ". " + res?.statusMessage;
     } else {
         resMessage = message.text;
     }
