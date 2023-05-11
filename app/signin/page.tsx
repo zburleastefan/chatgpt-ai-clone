@@ -76,8 +76,8 @@ return (
                 <div className='absolute border border-double border-red-400 rounded-full h-[420px] w-[420px] 
                 md:h-[570px] md:w-[570px] opacity-30'/>
                 <div className='absolute border border-red-400 rounded-full h-[200px] w-[200px] 
-                opacity-70 animate-ping' 
-            />
+                opacity-70 animate-ping' />
+                
                 <form className='relative flex flex-col justify-center items-center text-center align-middle bg-transparent' 
                     onSubmit={handleForm}
                 >                                              

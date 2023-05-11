@@ -50,6 +50,12 @@ export default async function handler(
     .collection("messages")
     .add(message);
 
+    let resMessage = '';
+    if (res.statusCode != 200) {
+        resMessage = "Error: " + res.statusCode.toString() + " " + res?.statusMessage;
+    } else {
+        resMessage = message.text;
+    }
     // console.log(res.statusCode + " : Status Message from askQuestion API : " + res.errored?.message);
-    res.status(res.statusCode).json({ answer: message?.text || res?.statusMessage || "Error code: " + res.statusCode.toString()});
+    res.status(200).json({ answer: resMessage});
 }
