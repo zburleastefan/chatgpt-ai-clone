@@ -1,7 +1,7 @@
 'use client'
 import { Toaster } from "react-hot-toast";
 
-export default function ClientProvider() {
+export default function Notification() {
   return (
         <Toaster position='top-right' />
   )

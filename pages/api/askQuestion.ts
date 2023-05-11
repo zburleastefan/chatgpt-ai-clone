@@ -37,7 +37,7 @@ export default async function handler(
     };
 
     if (!message.text || message.text == '') {
-        res.status(400).json({answer: "Could not find an answer! Please try again"});
+        res.status(400).json({answer: "Could not find an answer! Please try again."});
         return;
     }
     
@@ -50,5 +50,6 @@ export default async function handler(
     .collection("messages")
     .add(message);
 
-    res.status(200).json({ answer: message.text });
+    // console.log(res.statusCode + " : Status Message from askQuestion API : " + res.errored?.message);
+    res.status(res.statusCode).json({ answer: message?.text || res?.statusMessage || "Error code: " + res.statusCode.toString()});
 }

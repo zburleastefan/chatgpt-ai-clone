@@ -4,7 +4,6 @@ import { PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import { FormEvent, useRef, useState } from "react";
 import toast from "react-hot-toast";
-import chatGptLogo from '../../public/chatgptLogo.svg';
 import userImage from '../../public/defaultUser.svg';
 
 type Props = {

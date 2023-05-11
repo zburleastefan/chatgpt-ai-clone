@@ -10,12 +10,12 @@ export const AuthContext = React.createContext({});
 export const useAuthContext = () =>  React.useContext(AuthContext);
 export const AuthContextProvider = ({
     children,
-}: {
+}:{
     children: React.ReactNode
 }) => {
     const [user, setUser] = React.useState<User | null>(null);
     const [loading, setLoading] = React.useState<Boolean>(true);
-   
+
     React.useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
