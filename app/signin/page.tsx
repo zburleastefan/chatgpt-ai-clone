@@ -64,7 +64,7 @@ return (
         className="relative bg-[#11A37F] bg-no-repeat bg-center bg-cover object-scale-down place-items-center 
         bg-[url('/chatgptLogo.svg')] h-screen w-screen flex flex-col items-center justify-center text-center overflow-hidden"
     >      
-        <section className='grid w-screen h-screen justify-center md:mt-10 items-center align-middle'>
+        <section className='grid w-screen h-screen justify-center md:mt-10 items-center align-middle overflow-y-auto overflow-x-hidden'>
             <div className='relative flex flex-1 md:m-20 flex-col items-center justify-center'>
                 {/* Circles */}
                 <div className='absolute border blur-sm border-amber-400 rounded-full h-[420px] w-[420px] 
@@ -155,8 +155,8 @@ return (
                         ) : isResetPassVisible ? 
                         (  //restpassword     
 
-                            <div>
-                                <h1  className='text-white p-1 font-semibold'>Reset Password</h1>
+                            <div className='mt-16 md:mt-20 justify-center'>
+                                <h1  className='text-white p-1 mb-5 font-semibold'>Reset Password</h1>
                                 <label htmlFor="email" className='text-white/90 text-start'>
                                     <p className='p-1'>Email</p>
                                     <input
@@ -197,7 +197,7 @@ return (
                         ): errorState ? 
                         ( // error
 
-                            <div className='items-center justify-center flex flex-col'>
+                            <div className='items-center justify-center flex flex-col m-32'>
                                 <h1 className='text-white'>{errorMessage}</h1>
                                 <div   
                                     className="hover:shadow-lg hover:shadow-amber-400 p-3 w-24 mt-5 cursor-pointer 
@@ -211,7 +211,8 @@ return (
                         ) : 
                         ( // signin
                                                     
-                            <div >
+                            <div className='justify-between flex flex-col'>
+                                <div className='flex-1 md:mb-5'>
                                 <h1  className='text-white p-1 font-semibold'>Sign In</h1>
                                 <label htmlFor="email" className='text-white/90 p-1 text-start'>
                                     <p className='p-1'>Email</p>
@@ -288,40 +289,41 @@ return (
                                         <FcGoogle className='inline-block w-8 h-8 md:w-12 md:h-12'/> 
                                         <span> Sign in with Google</span>
                                     </div>               
-                                </div>                               
+                                </div> 
+                            </div> 
+                                <div className='align-bottom justify-center items-center'>
+                                    <div className='text-gray-700 flex-col'>
+                                        <p>Powered by</p>
+                                        <div className='flex-row'>
+                                            <a 
+                                            className='text-gray-600' 
+                                            href="https://openai.com/"  
+                                            target="_blank"  
+                                            >
+                                                <span className='text-gray-500 p-2 font-bold'>OpenAI</span>
+                                            </a>
+                                            <a 
+                                            className='text-gray-600' 
+                                            href="https://firebase.google.com/"  
+                                            target="_blank"  
+                                            >
+                                                <span className='text-gray-500 p-2 font-bold'>Firebase</span>
+                                            </a>
+                                            <a 
+                                            className='text-gray-600' 
+                                            href="https://vercel.com/"  
+                                            target="_blank"  
+                                            >
+                                                <span className='text-gray-500 p-2 font-bold'>Vercel</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>                              
                             </div>              
                         )
                     }
                 </form>                         
                 <Tooltip anchorSelect=".tooltip" className='shadow-sm shadow-red-400 text-white font-sans text-xs rounded-full p-1 bg-white/30 absolute' />                
-            </div>
-            <div className='align-bottom justify-center items-center'>
-                <div className='text-gray-700 flex-col'>
-                    <p>Powered by</p>
-                    <div className='flex-row'>
-                        <a 
-                        className='text-gray-600' 
-                        href="https://openai.com/"  
-                        target="_blank"  
-                        >
-                            <span className='text-gray-500 p-2 font-bold'>OpenAI</span>
-                        </a>
-                        <a 
-                        className='text-gray-600' 
-                        href="https://firebase.google.com/"  
-                        target="_blank"  
-                        >
-                            <span className='text-gray-500 p-2 font-bold'>Firebase</span>
-                        </a>
-                        <a 
-                        className='text-gray-600' 
-                        href="https://vercel.com/"  
-                        target="_blank"  
-                        >
-                            <span className='text-gray-500 p-2 font-bold'>Vercel</span>
-                        </a>
-                    </div>
-                </div>
             </div>
         </section>
     </div>

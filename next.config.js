@@ -12,19 +12,12 @@ const nextConfig = {
             port: '',
             pathname: '/**',
           },
-          {
-            protocol: 'https',
-            hostname: 'ui-avatars.com',
-            port: '',
-            pathname: '/**',
-          },
         ],
       },
     experimental: {
         appDir: true,
         modern: true,
         dynamicImports: true,
-        css: true
     }, 
 }
 
