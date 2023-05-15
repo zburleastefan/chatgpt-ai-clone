@@ -16,8 +16,6 @@ const nextConfig = {
       },
     experimental: {
         appDir: true,
-        modern: true,
-        dynamicImports: true,
     }, 
 }
 

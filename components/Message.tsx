@@ -1,24 +1,18 @@
 import { DocumentData } from "firebase/firestore";
 
 type Props = {
-    message: DocumentData;
+    message: String;
 };
 
 function Message({message}: Props) {
-    const isChatGPT = message.user.name === "ChatGPT"; 
+    // const isChatGPT = message.user.name === "ChatGPT"; 
 
     return (
-        <div className={`flex-col items-center justify-start flex overflow-auto text-start ${isChatGPT && "text-white"} ${!isChatGPT && "text-white/70"}`}>
+        <div className={`flex-col items-center justify-start flex overflow-auto text-start`}>
             <div className="text-base">
-                { isChatGPT ? (
-                    <>
-                        &quot;{message.text} &quot;
-                    </>
-                ) : (
-                    <>
-                        {message.text}
-                    </>
-                )}
+               
+                        {message}
+                  
             </div>           
         </div>
     )
