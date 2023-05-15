@@ -159,8 +159,8 @@ function Chat() {
                         <div className="flex mx-auto justify-center mt-6 animate-bounce">
                         <p className="my-auto">Ask ChatGPT anything, in any language.</p>
                         </div>
-                        <div className="flex mx-auto justify-center mt-6 animate-bounce cursor-pointer">
-                            <ArrowDownCircleIcon onClick={() => scrollToBottom()}  className="h-10 w-10 animate-pulse"/> 
+                        <div className="flex mx-auto justify-center mt-6 animate-bounce cursor-pointer" onClick={() => scrollToBottom()}>
+                            <ArrowDownCircleIcon className="h-10 w-10 animate-pulse"/> 
                         </div>
                     </div>
                     </div>
