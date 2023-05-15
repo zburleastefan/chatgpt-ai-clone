@@ -5,7 +5,7 @@ import SignIn from '@/app/signin/page';
 import SignUp from '@/app/signup/page';
 import { usePathname } from 'next/navigation';
 import ForgotPassword from '@/app/forgotpassword/page';
-import dynamic from 'next/dynamic';
+import LoadingDots from '../components/LoadingDots';
 
 const auth = getAuth(firebaseApp);
 
@@ -16,7 +16,6 @@ export const AuthContextProvider = ({
 }:{
     children: React.ReactNode
 }) => {
-    const DynamicLoading = dynamic(() => import('../components/LoadingDots'));
     const [user, setUser] = React.useState<User | null>(null);
     const [loading, setLoading] = React.useState<Boolean>(true);
     const pathName = usePathname();
@@ -41,8 +40,10 @@ export const AuthContextProvider = ({
                 text-center bg-[url('/chatgptLogo.svg')] justify-center
                 h-screen sm:pt-[10%] overflow-y-hidden overflow-x-clip p-3"
             >
-                <h1 className='text-2xl text-[#11A37F] font-mono font-bold'>Loading</h1>
-                <DynamicLoading/>
+                <h1 className="text-3xl font-display font-serif md:text-5xl font-bold tracking-normal text-[#11A37F] ">
+                    Loading{" "}
+                    <span className="relative text-3xl"><LoadingDots /></span>
+                </h1>
             </div>
         : user && user.emailVerified == true ? 
             children

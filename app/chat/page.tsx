@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 import { ArrowUpCircleIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import { auth, realtimeDB } from "@/firebase/firebaseConfig";
-import { onValue, ref, set } from "firebase/database";
+import { getDatabase, onValue, ref, set, query, limitToLast, get, orderByChild, orderByValue} from "firebase/database";
 
 function Chat() {
     const [prompt, setPrompt] = React.useState("");
@@ -42,18 +42,30 @@ function Chat() {
     }, [[[],heightRef]]);
 
     const [items , setItems] = useState<string[]>([]); 
+    const que = query(ref(realtimeDB, 'users/' + auth?.currentUser?.uid!), limitToLast(10));
 
     useEffect(() => {
-        onValue(ref(realtimeDB, 'users/' + auth?.currentUser?.uid!), (snapshot) => {
+
+        get(que).then((snapshot) => {
             let realtimeDbData: string[] = [];
+            
             snapshot.forEach((childSnapshot) => {
-            const childData = childSnapshot.val();
-            realtimeDbData.push(childData.userName + ' : ' + childData.text);
+                realtimeDbData.push(childSnapshot.val().userName + ' : ' + childSnapshot.val().text);
             });
+
             setItems(realtimeDbData);
-            }, {
-            onlyOnce: true
-        });
+        })
+
+        // onValue(ref(realtimeDB, 'users/' + auth?.currentUser?.uid!), (snapshot) => {
+        //     let realtimeDbData: string[] = [];
+        //     snapshot.forEach((childSnapshot) => {
+        //     const childData = childSnapshot.val();
+        //     realtimeDbData.push(childData.userName + ' : ' + childData.text);
+        //     });
+        //     setItems(realtimeDbData);
+        //     }, {
+        //     onlyOnce: true
+        // });
     },[isInputDisabled])
 
     const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
@@ -215,7 +227,7 @@ function Chat() {
                     </div>
                 )}
             </section>
-            
+
             <div className="text-gray-400 text-sm w-full sticky z-10 top-0 p-1 items-center justify-around">            
                 <form onSubmit={sendMessage} className="p-1 flex justify-evenly space-x-4 md:space-x-10 items-center">
                     <input 
