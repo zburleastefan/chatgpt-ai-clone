@@ -200,7 +200,7 @@ function Chat() {
                                             />
                                         ) : (
                                             <Image 
-                                            src={auth?.currentUser?.photoURL!}
+                                            src={auth?.currentUser?.photoURL! || userImage}
                                             alt={''} 
                                             width={100} height={100} 
                                             className='h-8 w-8 rounded-full bg-white bg-blend-saturation object-contain'
