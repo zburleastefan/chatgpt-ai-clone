@@ -39,7 +39,7 @@ function Chat() {
         setHeight(heightRef?.current?.clientHeight!);
         scrollToBottom(); 
         }
-    }, [[[],heightRef]]);
+    }, [heightRef]);
 
     const [items , setItems] = useState<string[]>([]); 
     const que = query(ref(realtimeDB, 'users/' + auth?.currentUser?.uid!), limitToLast(10));
@@ -153,14 +153,14 @@ function Chat() {
         >      
             <section className='grid w-screen h-screen justify-centeritems-center align-middle overflow-y-auto overflow-x-hidden'>
 
-                {!items && (
+                {items.length <= 0 && (
                     <div>
                     <div className="text-white text-center mt-10 ">
                         <div className="flex mx-auto justify-center mt-6 animate-bounce">
                         <p className="my-auto">Ask ChatGPT anything, in any language.</p>
                         </div>
-                        <div className="flex mx-auto justify-center mt-6 animate-bounce">
-                        <ArrowDownCircleIcon className="h-10 w-10 animate-pulse"/> 
+                        <div className="flex mx-auto justify-center mt-6 animate-bounce cursor-pointer">
+                            <ArrowDownCircleIcon onClick={() => scrollToBottom()}  className="h-10 w-10 animate-pulse"/> 
                         </div>
                     </div>
                     </div>
