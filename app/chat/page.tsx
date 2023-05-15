@@ -39,33 +39,33 @@ function Chat() {
         setHeight(heightRef?.current?.clientHeight!);
         scrollToBottom(); 
         }
-    }, [heightRef]);
+    }, [heightRef, []]);
 
     const [items , setItems] = useState<string[]>([]); 
-    const que = query(ref(realtimeDB, 'users/' + auth?.currentUser?.uid!), limitToLast(10));
-
+    
     useEffect(() => {
-
-        get(que).then((snapshot) => {
-            let realtimeDbData: string[] = [];
-            
-            snapshot.forEach((childSnapshot) => {
-                realtimeDbData.push(childSnapshot.val().userName + ' : ' + childSnapshot.val().text);
-            });
-
-            setItems(realtimeDbData);
-        })
-
-        // onValue(ref(realtimeDB, 'users/' + auth?.currentUser?.uid!), (snapshot) => {
+        
+        // const que = query(ref(realtimeDB, 'users/' + auth?.currentUser?.uid!), limitToLast(10));
+        // get(que).then((snapshot) => {
         //     let realtimeDbData: string[] = [];
+            
         //     snapshot.forEach((childSnapshot) => {
-        //     const childData = childSnapshot.val();
-        //     realtimeDbData.push(childData.userName + ' : ' + childData.text);
+        //         realtimeDbData.push(childSnapshot.val().userName + ' : ' + childSnapshot.val().text);
         //     });
+
         //     setItems(realtimeDbData);
-        //     }, {
-        //     onlyOnce: true
-        // });
+        // })
+
+        onValue(ref(realtimeDB, 'users/' + auth?.currentUser?.uid!), (snapshot) => {
+            let realtimeDbData: string[] = [];
+            snapshot.forEach((childSnapshot) => {
+            const childData = childSnapshot.val();
+            realtimeDbData.push(childData.userName + ' : ' + childData.text);
+            });
+            setItems(realtimeDbData);
+            }, {
+            onlyOnce: true
+        });
     },[isInputDisabled])
 
     const sendMessage = async (e: FormEvent<HTMLFormElement>) => {
@@ -159,7 +159,7 @@ function Chat() {
                         <div className="flex mx-auto justify-center mt-6 animate-bounce">
                         <p className="my-auto">Ask ChatGPT anything, in any language.</p>
                         </div>
-                        <div className="flex mx-auto justify-center mt-6 animate-bounce cursor-pointer" onClick={() => scrollToBottom()}>
+                        <div className="flex mx-auto justify-center mt-6 animate-bounce">
                             <ArrowDownCircleIcon className="h-10 w-10 animate-pulse"/> 
                         </div>
                     </div>
