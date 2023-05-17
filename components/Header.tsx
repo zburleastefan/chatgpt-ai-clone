@@ -29,7 +29,7 @@ function Header({}: Props) {
             </button>
         )}
 
-        <h1 className="text-3xl font-display font-serif md:text-5xl font-bold tracking-normal text-slate-400/90 ">
+        <h1 className="text-3xl font-display font-serif md:text-5xl font-bold tracking-normal text-white/90 ">
             ChatGPT{" "}
             <span className="relative whitespace-nowrap text-[#3290EE]">
                 <SquigglyLines />

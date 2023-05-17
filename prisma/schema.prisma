@@ -1,0 +1,20 @@
+model Post {
+    id          Int         @id @default(autoincrement())
+    title       String
+    createdAt   DateTime    @default(now())
+    updatedAt   DateTime    @updatedAt
+    content     String?
+    authorId    String
+    email       String
+    name        String
+    avatar      String
+}
+
+datasource db {
+    provider = "postgresql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}

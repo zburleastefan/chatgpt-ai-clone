@@ -33,7 +33,7 @@ export const AuthContextProvider = ({
     }, []);
 
     return (
-    <AuthContext.Provider value={{user}}>
+    <AuthContext.Provider value={{auth}}>
         { loading ? 
             <div 
                 className="flex flex-col bg-[#11A37F] bg-no-repeat bg-center bg-cover
@@ -57,3 +57,5 @@ export const AuthContextProvider = ({
     </AuthContext.Provider>
   );
 }
+
+export const authContext = auth;

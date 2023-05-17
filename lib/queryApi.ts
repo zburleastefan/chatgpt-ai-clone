@@ -4,7 +4,7 @@ const query = async (prompt: string, model: string) => {
     const response = await openAi.createCompletion({
         model,
         prompt,
-        temperature: 0.3,
+        temperature: 0.5,
         top_p: 1,       
         max_tokens: 1000,
         frequency_penalty: 0,
@@ -12,7 +12,7 @@ const query = async (prompt: string, model: string) => {
         n: 1,
     }).then(response => (response.data.choices[0].text))
     .catch((err) => 
-        `ChatGPT was unable to find an answer for that! (Error: ${err.message})`
+        ` ChatGPT was unable to find an answer for that! Please try again later. (Error: ${err.message})`
     );
     
     return response;

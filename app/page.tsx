@@ -1,10 +1,7 @@
 'use client'
-import firebaseApp from "@/firebase/firebaseConfig";
+import { authContext } from "@/context/AuthContext";
 import { BoltIcon, CodeBracketSquareIcon, PaperAirplaneIcon } from "@heroicons/react/24/solid";
-import { getAuth } from "firebase/auth";
 import Link from "next/link";
-
-const auth = getAuth(firebaseApp);
 
 export default function Home() {
   return (
@@ -13,8 +10,8 @@ export default function Home() {
         bg-[url('/chatgptLogo.svg')] h-screen  flex flex-col items-center justify-center text-center overflow-hidden"
     >      
         <section className='grid align-middle overflow-y-hidden text-center overflow-x-hidden justify-center'>
-            <h3 className="text-white m-1 opacity-80">Hello <span className="font-semibold hover:underline hover:text-[#11A37F] hover:opacity-100">{auth?.currentUser?.displayName || auth?.currentUser?.email}</span></h3>
-            <Link href={'/chat'} className="text-white mb-5 hover:scale-105 hover:shadow-lg hover:shadow-red-700 md:m-10 md:text-2xl p-1 m-2 border border-t rounded-full transition duration-700">
+            <h3 className="text-white m-1 opacity-80">Hello <span className="text-white font-semibold hover:underline hover:text-[#11A37F] hover:opacity-100">{authContext?.currentUser?.displayName || authContext?.currentUser?.email}</span></h3>
+            <Link href={`/chat/${authContext?.currentUser?.uid}`} className="text-white mb-5 hover:scale-105 hover:shadow-lg hover:shadow-red-700 md:m-10 md:text-2xl p-1 m-2 border border-t rounded-full transition duration-700">
                 Chat with <span className="font-serif">ChatGPT 3.5</span>
             </Link>
             <h6 className="text-sm mx-10 mb-2 text-gray-400/70 font-semibold">Answers from ChatGPT OpenAI:</h6>

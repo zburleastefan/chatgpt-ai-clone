@@ -167,6 +167,13 @@ return (
                 >
                     <p className='text-gray-500 p-1 font-bold'>Vercel</p>
                 </a>
+                <a 
+                className='text-gray-600' 
+                href="https://www.prisma.io/"  
+                target="_blank"  
+                >
+                    <p className='text-gray-500 p-1 font-bold'>Prisma</p>
+                </a>
             </div>
         </div>
                               
