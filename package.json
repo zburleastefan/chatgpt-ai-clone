@@ -13,7 +13,8 @@
     "db:seed": "npx dotenv -e .env.local -- prisma db seed",
     "prisma:generate": "npx dotenv -e .env.local -- prisma generate",
     "prisma:studio": "npx dotenv -e .env.local -- prisma studio",
-    "production:build": "npx prisma generate && npx prisma migrate deploy && next build"
+    "production:build": "npx prisma generate && npx prisma migrate deploy && next build",
+    "postinstall": "npx dotenv -e .env.local -- prisma generate"
   },
   "dependencies": {
     "@heroicons/react": "^2.0.17",
