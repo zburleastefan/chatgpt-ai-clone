@@ -17,7 +17,6 @@ export default function RootLayout({
       <body>
         <AuthContextProvider>
           <div className='flex flex-col overflow-hidden h-screen max-h-screen'>
-            <Header/>
 
             {children}
 

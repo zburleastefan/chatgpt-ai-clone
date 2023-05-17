@@ -7,8 +7,9 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { authContext } from "@/context/AuthContext";
 import React from "react";
-import { ArrowUpCircleIcon, PaperAirplaneIcon } from "@heroicons/react/24/solid";
+import { ArrowUpCircleIcon, HomeModernIcon, PaperAirplaneIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 type Props = {
     dbData: {
@@ -213,6 +214,11 @@ return (
         </section>
         <div className={`text-gray-400 text-sm w-full rounded-full`}>            
             <form onSubmit={sendMessage} className="p-2 flex justify-evenly items-center">
+                <Link href={'/'} data-tooltip-id="tooltip" data-tooltip-content="Home" data-tooltip-place='bottom' className='tooltip text-white'>
+                    <HomeModernIcon 
+                        className='w-10 h-10 md:w-12 md:h-12 text-white cursor-pointer hover:text-[#11A37F]'
+                    />     
+                </Link>
                 <input 
                     ref={inputRef}
                     className={`md:px-3 w-3/4  align-start items-start rounded-full p-2 text-start justify-start 
