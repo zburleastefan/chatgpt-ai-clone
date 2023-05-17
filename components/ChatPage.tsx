@@ -134,6 +134,10 @@ function ChatPage({dbData}: Props) {
     };
 
     useEffect(() => {
+        window.scrollTo(0, 1);
+    }, []);
+
+    useEffect(() => {
         screenHeight(); 
         scrollToBottom(); 
     }, [[], heightRef]);
@@ -157,7 +161,7 @@ return (
 
                 { dbData?.posts?.length > 0 && (
                     <div>
-                        <div ref={heightRef} className="mx-8">
+                        <div ref={heightRef} className="mx-2 md:mx-8">
                             {height > 750 && (
                             <div ref={messagesStart} className="p-1 md:p-3">
                                 <ArrowDownCircleIcon 
