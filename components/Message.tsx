@@ -1,5 +1,3 @@
-import { DocumentData } from "firebase/firestore";
-
 type Props = {
     message: String;
     userName: String;
@@ -7,19 +5,24 @@ type Props = {
 };
 
 function Message({message, userName, uid}: Props) {
-    // const isChatGPT = message.user.name === "ChatGPT"; 
-
+    let gptMessage = message;
+    if (message[0] == '\n') {
+        gptMessage = message.replace(/\n/, "");
+        if (gptMessage[0] == '\n') {
+            gptMessage = gptMessage.replace(/\n/, "");
+        }
+    }
     return (
         <div className={`flex-col items-center justify-start flex overflow-auto text-start ${userName?.includes("ChatGPT") && "text-white"} ${!userName?.includes("ChatGPT") && "text-white/70"}`}>
             <div className="text-base text-white">
                 { userName === "ChatGPT" ? (
-                        <>
-                            &quot;{message} &quot;
-                        </>
+                        <div className="new-line">
+                            {gptMessage}
+                        </div>
                     ) : (
-                        <>
+                        <div>
                             {message}
-                        </>
+                        </div>
                     )
                 }              
             </div>           

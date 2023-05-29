@@ -7,9 +7,10 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import toast from "react-hot-toast";
 import { authContext } from "@/context/AuthContext";
 import React from "react";
-import { ArrowUpCircleIcon, HomeModernIcon, PaperAirplaneIcon } from "@heroicons/react/24/solid";
+import { ArrowUpCircleIcon, HomeModernIcon, PaperAirplaneIcon, RssIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import query from "@/lib/queryApi";
 
 type Props = {
     dbData: {
@@ -66,52 +67,65 @@ function ChatPage({dbData}: Props) {
             }),     
         }).then(async () => {
             router.refresh();
-            toast.loading('Posting user input to database...', { 
-                id: notification,
-            })
+            toast.success('Posting user input to database...', { 
+                id: notification,})
             setPlaceholderMsg("Posting user input to database...");
-
             toast.loading('Asking Gpt...', { 
-                id: notification,
-            })
+                id: notification,})
             setPlaceholderMsg("Asking Gpt...");
-
-            // asking GPT and posting message to database
-            await fetch("/api/dbPosts", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    authorId: authContext?.currentUser?.uid!,
-                    email: 'https://openai.com/',
-                    avatar: "/favicon.ico",
-                    prompt: userInput, 
-                    name : "ChatGPT",
-                    model: model,
-                }),     
-            }).then(() => {
-                toast.loading('Posting GPT response to database...', { 
-                    id: notification,
-                })
-                setPlaceholderMsg("Posting GPT response to database...");
-            }).catch((error) => {
-                toast.error(error);
-            })
         }).catch((error) => {
             toast.error(error);
         })
         
+        // asking GPT 
+        const gptResponse = await fetch("/api/askGPT", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                prompt: userInput, 
+                model: model,
+            }),     
+        }).then(async (response) => {
+            const json = await response.json();
+            // console.log(JSON.stringify(json.answer)
+            // const value = json.answer.replace(/\n/g, "<br />");
+            toast.success('GPT message arrived...', { 
+                id: notification,});
+            setPlaceholderMsg("GPT message arrived...");
+            return json.answer;
+        }).catch((error) => {
+            toast.error(error);
+        })
+        
+        //posting Gpt message to database
+        await fetch("/api/dbPosts", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                authorId: authContext?.currentUser?.uid!,
+                email: 'https://openai.com/',
+                avatar: "/favicon.ico",
+                prompt: gptResponse, 
+                name : "ChatGPT",
+                model: model,
+            }),     
+        }).then(() => {
+            toast.success('Posting GPT message to database...', { 
+                id: notification,})
+            setPlaceholderMsg("Posting GPT response to database...");
+        }).catch((error) => {
+            toast.error(error);
+        })
         toast.loading('Clearing thoughts...', { 
-            id: notification,
-        })
+            id: notification,})
         setPlaceholderMsg("Clearing thoughts...");
-        
         toast.success('Success!', { 
-            id: notification,
-        })
+            id: notification,})
         setPlaceholderMsg("Ask me anything...");
-        
         setIsInputDisabled(false);
         setPrompt("");   
         router.refresh();
@@ -125,7 +139,6 @@ function ChatPage({dbData}: Props) {
     const scrollToTop = () => {
         messagesStart.current?.scrollIntoView({ behavior: "smooth" });
     };
-
     const [height, setHeight] = useState(0);
     const heightRef = useRef<HTMLDivElement>(null);
     const screenHeight= () => {
@@ -141,7 +154,7 @@ function ChatPage({dbData}: Props) {
     useEffect(() => {
         screenHeight(); 
         scrollToBottom(); 
-    }, [[], heightRef]);
+    }, [[]]);
 
 return (
     <>

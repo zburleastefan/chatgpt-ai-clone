@@ -49,6 +49,10 @@ body {
 }
 
 @layer components {
+    .new-line {
+        white-space: pre-line;
+      }
+
     .infoText {
         @apply p-2 bg-gray-700/40 text-white rounded-lg max-w-[300px]
     }
