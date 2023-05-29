@@ -45,32 +45,42 @@ Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&ut
 
 1. Clear your browser cache and cookies:
 
+```bash
 • In Chrome, click the three dots in the upper-right corner of the browser window, then select More Tools > Clear Browsing Data.
 
 • Select the time range and the types of data you want to clear, then click Clear Data.
+```
 
 2. Update your browser:
 
+```bash
 • Click the three dots in the upper-right corner of the browser window, then select Help > About Google Chrome.
 
 • Chrome will check for updates and prompt you to relaunch the browser if any are available.
+```
 
 3. Reset your browser settings:
 
+```bash
 • Click the three dots in the upper-right corner of the browser window, then select Settings.
 
 • Scroll to the bottom of the page and click Advanced.
 
 • At the bottom of the page, click Reset Settings.
+```
 
 4. Disable any browser extensions:
 
+```bash
 • Click the three dots in the upper-right corner of the browser window, then select More Tools > Extensions.
 
 • Disable any extensions that you don't recognize or that are not from a trusted source.
+```
 
 5. Reinstall your browser:
 
+```bash
 • Uninstall Chrome from your computer.
 
 • Download a fresh copy of Chrome from the official website and install it.
+```
