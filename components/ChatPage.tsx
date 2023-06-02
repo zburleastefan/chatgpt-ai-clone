@@ -79,11 +79,11 @@ function ChatPage({dbData}: Props) {
         
          // asking GPT 
          const gptResponse = await rapidApiGPT(userInput).then(async (response) => {
-            console.log( JSON.stringify(response.choices[0].text));
+            console.log( JSON.stringify(response.choices[0].message.content));
             toast.success('GPT message arrived...', { 
                 id: notification,});
             setPlaceholderMsg("GPT message arrived...");
-            return JSON.stringify(response.choices[0].text);
+            return JSON.stringify(response.choices[0].message.content);
         }).catch((error) => {
             toast.error(error);
         })

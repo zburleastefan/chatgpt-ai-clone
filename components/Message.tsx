@@ -12,12 +12,14 @@ function Message({message, userName, uid}: Props) {
             gptMessage = gptMessage.replace(/\n/, "");
         }
     }
+    const messageNewLine = message.replace(/\\n/g, "\n");
+
     return (
         <div className={`flex-col items-center justify-start flex overflow-auto text-start ${userName?.includes("ChatGPT") && "text-white"} ${!userName?.includes("ChatGPT") && "text-white/70"}`}>
             <div className="text-base text-white">
                 { userName === "ChatGPT" ? (
                         <div className="new-line">
-                            {gptMessage}
+                            {messageNewLine}
                         </div>
                     ) : (
                         <div>

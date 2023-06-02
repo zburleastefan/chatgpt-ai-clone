@@ -174,6 +174,13 @@ return (
                 >
                     <p className='text-gray-500 p-1 font-bold'>Prisma</p>
                 </a>
+                <a 
+                className='text-gray-600' 
+                href="https://rapidapi.com/"  
+                target="_blank"  
+                >
+                    <p className='text-gray-500 p-1 font-bold'>RapidAPI</p>
+                </a>
             </div>
         </div>
                               
