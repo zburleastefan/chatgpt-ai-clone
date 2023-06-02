@@ -1,6 +1,4 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import query from '@/lib/queryApi';
-import { prisma } from '@/lib/prismaClient';
 import openAi from '@/lib/chatgpt';
 
 type Data = {

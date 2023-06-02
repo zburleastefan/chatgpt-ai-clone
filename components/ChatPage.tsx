@@ -10,7 +10,7 @@ import React from "react";
 import { ArrowUpCircleIcon, HomeModernIcon, PaperAirplaneIcon, RssIcon } from "@heroicons/react/24/solid";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import query from "@/lib/queryApi";
+import { rapidApiGPT } from "@/lib/rapidApiGPT";
 
 type Props = {
     dbData: {
@@ -77,27 +77,36 @@ function ChatPage({dbData}: Props) {
             toast.error(error);
         })
         
-        // asking GPT 
-        const gptResponse = await fetch("/api/askGPT", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                prompt: userInput, 
-                model: model,
-            }),     
-        }).then(async (response) => {
-            const json = await response.json();
-            // console.log(JSON.stringify(json.answer)
-            // const value = json.answer.replace(/\n/g, "<br />");
+         // asking GPT 
+         const gptResponse = await rapidApiGPT(userInput).then(async (response) => {
+            console.log( JSON.stringify(response.choices[0].text));
             toast.success('GPT message arrived...', { 
                 id: notification,});
             setPlaceholderMsg("GPT message arrived...");
-            return json.answer;
+            return JSON.stringify(response.choices[0].text);
         }).catch((error) => {
             toast.error(error);
         })
+
+        // // asking GPT 
+        // const gptResponse = await fetch("/api/askGPT", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify({
+        //         prompt: userInput, 
+        //         model: model,
+        //     }),     
+        // }).then(async (response) => {
+        //     const json = await response.json();
+        //     toast.success('GPT message arrived...', { 
+        //         id: notification,});
+        //     setPlaceholderMsg("GPT message arrived...");
+        //     return json.answer;
+        // }).catch((error) => {
+        //     toast.error(error);
+        // })
         
         //posting Gpt message to database
         await fetch("/api/dbPosts", {

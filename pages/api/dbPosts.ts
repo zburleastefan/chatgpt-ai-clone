@@ -18,11 +18,6 @@ export default async function handler(
         return;
     }
 
-    // if (name == "ChatGPT") {
-    //     // ask chatGPT
-    //     prompt = await query(prompt, model);
-    // }
-
     switch (method) {
         case 'GET': 
         //  //Get data from database
